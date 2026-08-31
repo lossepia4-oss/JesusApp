@@ -1,20 +1,31 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import { featuredQuestions, questions } from "@/data/questions";
 import type { Question } from "@/data/types";
 import { getQuestion, searchQuestions } from "@/lib/search";
 import { VerseCard } from "./VerseCard";
 
 export function AskClient() {
-  const router = useRouter();
-  const params = useSearchParams();
-  const selectedId = params.get("q");
   const [query, setQuery] = useState("");
   const [submitted, setSubmitted] = useState("");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const selected = selectedId ? getQuestion(selectedId) : undefined;
+
+  useEffect(() => {
+    const apply = () => {
+      const id = new URLSearchParams(window.location.search).get("q");
+      setSelectedId(id);
+      if (id) {
+        const match = getQuestion(id);
+        if (match) setQuery(match.question);
+      }
+    };
+    apply();
+    window.addEventListener("popstate", apply);
+    return () => window.removeEventListener("popstate", apply);
+  }, []);
 
   const results = useMemo(() => {
     const source = submitted || query;
@@ -22,14 +33,17 @@ export function AskClient() {
     return searchQuestions(source);
   }, [query, submitted]);
 
-  useEffect(() => {
-    if (selected) setQuery(selected.question);
-  }, [selected]);
+  function setUrl(path: string) {
+    window.history.pushState({}, "", path);
+    const id = new URLSearchParams(path.split("?")[1] || "").get("q");
+    setSelectedId(id);
+  }
 
   function openQuestion(question: Question) {
     setQuery(question.question);
     setSubmitted("");
-    router.push(`/?q=${question.id}`, { scroll: true });
+    setUrl(`/?q=${question.id}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function onSubmit(event: React.FormEvent) {
@@ -39,17 +53,18 @@ export function AskClient() {
     const found = searchQuestions(trimmed);
     if (found.direct) {
       setSubmitted("");
-      router.push(`/?q=${found.direct.question.id}`);
+      setUrl(`/?q=${found.direct.question.id}`);
       return;
     }
-    router.push("/");
+    setUrl("/");
+    setSelectedId(null);
     setSubmitted(trimmed);
   }
 
   function clearToList() {
     setQuery("");
     setSubmitted("");
-    router.push("/");
+    setUrl("/");
   }
 
   if (selected) {
