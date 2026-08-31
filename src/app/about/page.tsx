@@ -18,9 +18,10 @@ export default function AboutPage() {
       <h2>Ask</h2>
       <p>
         Near answers a curated set of questions from the World English Bible
-        only. Verses are shown on the screen. Near will not invent doctrine. If
-        the Bible does not speak directly to what you typed, Near will say so
-        and show the closest questions it can help with.
+        only. Verses are shown on the screen. Each answer has a public URL you
+        can share. Near will not invent doctrine. If the Bible does not speak
+        directly to what you typed, Near will say so and show the closest
+        questions it can help with.
       </p>
       <h2>Today</h2>
       <p>

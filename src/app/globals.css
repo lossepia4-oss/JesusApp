@@ -148,6 +148,20 @@ a {
   background: transparent;
   color: var(--accent);
   padding: 4px 0 12px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.share-btn {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .panel,
@@ -182,6 +196,7 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.question-list a,
 .question-list button {
   width: 100%;
   text-align: left;
@@ -192,8 +207,11 @@ a {
   font-size: 1.05rem;
   color: var(--ink);
   cursor: pointer;
+  text-decoration: none;
+  display: block;
 }
 
+.question-list a::after,
 .question-list button::after {
   content: " →";
   color: var(--accent);

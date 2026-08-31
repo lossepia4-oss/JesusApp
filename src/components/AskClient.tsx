@@ -1,31 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { featuredQuestions, questions } from "@/data/questions";
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { featuredQuestions } from "@/data/questions";
 import type { Question } from "@/data/types";
-import { getQuestion, searchQuestions } from "@/lib/search";
-import { VerseCard } from "./VerseCard";
+import { searchQuestions } from "@/lib/search";
+import { questionPath } from "@/lib/site";
 
 export function AskClient() {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [submitted, setSubmitted] = useState("");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  const selected = selectedId ? getQuestion(selectedId) : undefined;
-
-  useEffect(() => {
-    const apply = () => {
-      const id = new URLSearchParams(window.location.search).get("q");
-      setSelectedId(id);
-      if (id) {
-        const match = getQuestion(id);
-        if (match) setQuery(match.question);
-      }
-    };
-    apply();
-    window.addEventListener("popstate", apply);
-    return () => window.removeEventListener("popstate", apply);
-  }, []);
 
   const results = useMemo(() => {
     const source = submitted || query;
@@ -33,48 +19,16 @@ export function AskClient() {
     return searchQuestions(source);
   }, [query, submitted]);
 
-  function setUrl(path: string) {
-    window.history.pushState({}, "", path);
-    const id = new URLSearchParams(path.split("?")[1] || "").get("q");
-    setSelectedId(id);
-  }
-
-  function openQuestion(question: Question) {
-    setQuery(question.question);
-    setSubmitted("");
-    setUrl(`/?q=${question.id}`);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     const trimmed = query.trim();
     if (!trimmed) return;
     const found = searchQuestions(trimmed);
     if (found.direct) {
-      setSubmitted("");
-      setUrl(`/?q=${found.direct.question.id}`);
+      router.push(questionPath(found.direct.question.id));
       return;
     }
-    setUrl("/");
-    setSelectedId(null);
     setSubmitted(trimmed);
-  }
-
-  function clearToList() {
-    setQuery("");
-    setSubmitted("");
-    setUrl("/");
-  }
-
-  if (selected) {
-    return (
-      <AnswerView
-        question={selected}
-        onBack={clearToList}
-        onRelated={openQuestion}
-      />
-    );
   }
 
   const showNoDirect = Boolean(submitted && results && !results.direct);
@@ -113,17 +67,12 @@ export function AskClient() {
         <section className="panel">
           <h2>Matching questions</h2>
           {results.direct || results.closest.length ? (
-            <ul className="question-list">
-              {(results.direct ? [results.direct, ...results.closest] : results.closest).map(
-                (hit) => (
-                  <li key={hit.question.id}>
-                    <button type="button" onClick={() => openQuestion(hit.question)}>
-                      {hit.question.question}
-                    </button>
-                  </li>
-                ),
-              )}
-            </ul>
+            <QuestionLinks
+              items={(results.direct
+                ? [results.direct, ...results.closest]
+                : results.closest
+              ).map((hit) => hit.question)}
+            />
           ) : (
             <p className="empty">No matching questions yet. Press Ask.</p>
           )}
@@ -137,80 +86,28 @@ export function AskClient() {
             Near only answers from a curated set of questions, using the World
             English Bible. It will not invent an answer. Closest questions:
           </p>
-          <ul className="question-list">
-            {results.closest.map((hit) => (
-              <li key={hit.question.id}>
-                <button type="button" onClick={() => openQuestion(hit.question)}>
-                  {hit.question.question}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <QuestionLinks items={results.closest.map((hit) => hit.question)} />
         </section>
       )}
 
       {!query.trim() && (
         <section className="panel">
           <h2>Start here</h2>
-          <ul className="question-list">
-            {featuredQuestions.map((question) => (
-              <li key={question.id}>
-                <button type="button" onClick={() => openQuestion(question)}>
-                  {question.question}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <QuestionLinks items={featuredQuestions} />
         </section>
       )}
     </div>
   );
 }
 
-function AnswerView({
-  question,
-  onBack,
-  onRelated,
-}: {
-  question: Question;
-  onBack: () => void;
-  onRelated: (question: Question) => void;
-}) {
-  const related = questions.filter((q) => q.id !== question.id && q.featured).slice(0, 3);
-
+function QuestionLinks({ items }: { items: Question[] }) {
   return (
-    <div className="page">
-      <button type="button" className="back" onClick={onBack}>
-        ← All questions
-      </button>
-      <header className="hero compact">
-        <p className="eyebrow">From the Bible</p>
-        <h1>{question.question}</h1>
-        <p className="lede">{question.intro}</p>
-      </header>
-      <ol className="verses">
-        {question.verses.map((verse) => (
-          <li key={verse.reference}>
-            <VerseCard verse={verse} />
-          </li>
-        ))}
-      </ol>
-      <p className="footnote">
-        World English Bible · public domain. Near does not add teaching beyond
-        these verses.
-      </p>
-      <section className="panel">
-        <h2>Related</h2>
-        <ul className="question-list">
-          {related.map((item) => (
-            <li key={item.id}>
-              <button type="button" onClick={() => onRelated(item)}>
-                {item.question}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+    <ul className="question-list">
+      {items.map((question) => (
+        <li key={question.id}>
+          <Link href={questionPath(question.id)}>{question.question}</Link>
+        </li>
+      ))}
+    </ul>
   );
 }

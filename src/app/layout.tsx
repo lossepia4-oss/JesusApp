@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BottomNav } from "@/components/BottomNav";
 import { PwaRegister } from "@/components/PwaRegister";
 import { ReminderScheduler } from "@/components/ReminderScheduler";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const sans = DM_Sans({
@@ -19,6 +20,7 @@ const serif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Near",
     template: "%s · Near",
@@ -26,6 +28,11 @@ export const metadata: Metadata = {
   description: "Questions about Jesus, answered from the World English Bible.",
   applicationName: "Near",
   manifest: "/manifest.webmanifest",
+  openGraph: {
+    siteName: "Near",
+    type: "website",
+    locale: "en_US",
+  },
   appleWebApp: {
     capable: true,
     title: "Near",

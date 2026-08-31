@@ -27,9 +27,13 @@ This repo is ready for Vercel: Next.js App Router plus `vercel.json`. Connect th
 ## Pages
 
 - `/` Ask
+- `/ask/who-is-jesus` Example shareable answer (every question has a stable URL)
 - `/today` Seven-day way to live
 - `/reminders` Notification time (on by default at 8:00)
 - `/about`
 - `/privacy`
+- `/sitemap.xml` and `/robots.txt`
+
+Each answer is a public page with its own title and Open Graph tags. Share copies the question and URL.
 
 Add to the home screen from the browser menu to install the PWA.
