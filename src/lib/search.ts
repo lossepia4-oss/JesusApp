@@ -10,7 +10,8 @@ const fuse = new Fuse(questions, {
   keys: [
     { name: "question", weight: 0.55 },
     { name: "aliases", weight: 0.35 },
-    { name: "intro", weight: 0.1 },
+    { name: "intro", weight: 0.08 },
+    { name: "shortAnswer", weight: 0.07 },
   ],
 });
 
@@ -32,7 +33,9 @@ export function searchQuestions(query: string): {
   }
 
   const exact = questions.find(
-    (item) => item.question.toLowerCase() === q.toLowerCase(),
+    (item) =>
+      item.question.toLowerCase() === q.toLowerCase() ||
+      item.aliases.some((alias) => alias.toLowerCase() === q.toLowerCase()),
   );
   if (exact) {
     return {

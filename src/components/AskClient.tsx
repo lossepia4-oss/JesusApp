@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { featuredQuestions } from "@/data/questions";
+import { featuredQuestions, moreQuestions } from "@/data/questions";
 import type { Question } from "@/data/types";
 import { searchQuestions } from "@/lib/search";
 import { questionPath } from "@/lib/site";
@@ -91,10 +91,16 @@ export function AskClient() {
       )}
 
       {!query.trim() && (
-        <section className="panel">
-          <h2>Start here</h2>
-          <QuestionLinks items={featuredQuestions} />
-        </section>
+        <>
+          <section className="panel">
+            <h2>Start here</h2>
+            <QuestionLinks items={featuredQuestions} />
+          </section>
+          <section className="panel">
+            <h2>People also ask</h2>
+            <QuestionLinks items={moreQuestions} />
+          </section>
+        </>
       )}
     </div>
   );

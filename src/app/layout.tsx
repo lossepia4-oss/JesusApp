@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Near",
-    template: "%s · Near",
+    template: "%s | Near",
   },
   description: "Questions about Jesus, answered from the World English Bible.",
   applicationName: "Near",

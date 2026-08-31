@@ -1,14 +1,12 @@
 import Link from "next/link";
-import { questions } from "@/data/questions";
+import { relatedQuestions } from "@/data/related";
 import type { Question } from "@/data/types";
 import { questionPath } from "@/lib/site";
 import { ShareButton } from "./ShareButton";
 import { VerseCard } from "./VerseCard";
 
 export function AnswerBody({ question }: { question: Question }) {
-  const related = questions
-    .filter((item) => item.id !== question.id && item.featured)
-    .slice(0, 3);
+  const related = relatedQuestions(question.id);
 
   return (
     <div className="page">
@@ -32,16 +30,18 @@ export function AnswerBody({ question }: { question: Question }) {
         World English Bible · public domain. Near does not add teaching beyond
         these verses.
       </p>
-      <section className="panel">
-        <h2>Related</h2>
-        <ul className="question-list">
-          {related.map((item) => (
-            <li key={item.id}>
-              <Link href={questionPath(item.id)}>{item.question}</Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {related.length > 0 && (
+        <section className="panel">
+          <h2>Related questions</h2>
+          <ul className="question-list">
+            {related.map((item) => (
+              <li key={item.id}>
+                <Link href={questionPath(item.id)}>{item.question}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }

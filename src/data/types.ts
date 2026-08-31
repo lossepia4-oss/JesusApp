@@ -10,6 +10,8 @@ export type Question = {
   aliases: string[];
   /** Short framing that only introduces the verses. Never adds doctrine. */
   intro: string;
+  /** One-sentence answer for meta description and FAQ JSON-LD. */
+  shortAnswer?: string;
   verses: Verse[];
 };
 

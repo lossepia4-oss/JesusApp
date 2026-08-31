@@ -17,6 +17,8 @@ export const questions: Question[] = [
     ],
     intro:
       "The Bible names Jesus as the Word who was with God and was God, who became flesh, the Christ, the Son of the living God, and the way to the Father.",
+    shortAnswer:
+      "Who is Jesus? The Bible names him as the Word who was with God and was God, who became flesh.",
     verses: [
       {
         reference: "John 1:1-4",
@@ -488,9 +490,17 @@ export const questions: Question[] = [
     id: "what-is-sin",
     question: "What is sin?",
     featured: false,
-    aliases: ["sin", "lawlessness", "what have i done wrong", "fall short"],
+    aliases: [
+      "sin",
+      "lawlessness",
+      "what have i done wrong",
+      "fall short",
+      "what does the bible say about sin",
+    ],
     intro:
-      "The Bible says sin is lawlessness, and that all have sinned and fall short of the glory of God.",
+      "The Bible says sin is lawlessness, that all have sinned and fall short of the glory of God, and that iniquities separate people from God.",
+    shortAnswer:
+      "What is sin? The Bible calls sin lawlessness, and says all have sinned and fall short of the glory of God.",
     verses: [
       {
         reference: "1 John 3:4",
@@ -500,13 +510,22 @@ export const questions: Question[] = [
         reference: "Romans 3:23-24",
         text: "for all have sinned, and fall short of the glory of God; being justified freely by his grace through the redemption that is in Christ Jesus.",
       },
+      {
+        reference: "James 4:17",
+        text: "To him therefore who knows to do good, and doesn’t do it, to him it is sin.",
+      },
+      {
+        reference: "Isaiah 59:2",
+        text: "But your iniquities have separated you and your God, and your sins have hidden his face from you, so that he will not hear.",
+      },
     ],
   },
   {
-    id: "holy-spirit",
-    question: "Who is the Holy Spirit?",
+    id: "what-is-the-holy-spirit",
+    question: "What is the Holy Spirit?",
     featured: false,
     aliases: [
+      "who is the holy spirit",
       "holy ghost",
       "counselor",
       "spirit of truth",
@@ -514,7 +533,9 @@ export const questions: Question[] = [
       "helper",
     ],
     intro:
-      "Jesus calls the Holy Spirit the Counselor, the Spirit of truth, whom the Father sends in Jesus’ name to be with his people forever.",
+      "Jesus calls the Holy Spirit the Counselor, the Spirit of truth, whom the Father sends in Jesus’ name to be with his people, teach them, and give them power to be witnesses.",
+    shortAnswer:
+      "What is the Holy Spirit? Jesus calls him the Counselor and Spirit of truth, whom the Father sends in Jesus’ name.",
     verses: [
       {
         reference: "John 14:15-17",
@@ -523,6 +544,14 @@ export const questions: Question[] = [
       {
         reference: "John 14:26",
         text: "But the Counselor, the Holy Spirit, whom the Father will send in my name, he will teach you all things, and will remind you of all that I said to you.",
+      },
+      {
+        reference: "John 16:13",
+        text: "However when he, the Spirit of truth, has come, he will guide you into all truth, for he will not speak from himself; but whatever he hears, he will speak. He will declare to you things that are coming.",
+      },
+      {
+        reference: "Acts 1:8",
+        text: "But you will receive power when the Holy Spirit has come upon you. You will be witnesses to me in Jerusalem, in all Judea and Samaria, and to the uttermost parts of the earth.",
       },
     ],
   },
@@ -603,6 +632,295 @@ export const questions: Question[] = [
       },
     ],
   },
+  {
+    id: "who-is-god",
+    question: "Who is God?",
+    featured: false,
+    aliases: [
+      "what is god",
+      "who is the lord",
+      "yahweh",
+      "is there one god",
+      "god is love",
+    ],
+    intro:
+      "The Bible says Yahweh is God, and God is one; he created the heavens and the earth; he is spirit; he is love; and he names himself I AM.",
+    shortAnswer:
+      "Who is God? The Bible says Yahweh is one, the Creator, spirit, and love, who names himself I AM.",
+    verses: [
+      {
+        reference: "Deuteronomy 6:4-5",
+        text: "Hear, Israel: Yahweh is our God. Yahweh is one. You shall love Yahweh your God with all your heart, with all your soul, and with all your might.",
+      },
+      {
+        reference: "Genesis 1:1",
+        text: "In the beginning, God created the heavens and the earth.",
+      },
+      {
+        reference: "Exodus 3:14",
+        text: "God said to Moses, “I AM WHO I AM,” and he said, “You shall tell the children of Israel this: ‘I AM has sent me to you.’",
+      },
+      {
+        reference: "John 4:24",
+        text: "God is spirit, and those who worship him must worship in spirit and truth.",
+      },
+      {
+        reference: "1 John 4:8",
+        text: "He who doesn’t love doesn’t know God, for God is love.",
+      },
+      {
+        reference: "Isaiah 45:5-6",
+        text: "I am Yahweh, and there is no one else. Besides me, there is no God. I will strengthen you, though you have not known me; that they may know from the rising of the sun, and from the west, that there is no one besides me. I am Yahweh, and there is no one else.",
+      },
+    ],
+  },
+  {
+    id: "was-jesus-a-real-person",
+    question: "Was Jesus a real person?",
+    featured: false,
+    aliases: [
+      "did jesus exist",
+      "is jesus historical",
+      "was jesus a myth",
+      "eyewitnesses of jesus",
+    ],
+    intro:
+      "The Bible presents Jesus as a man in known places and years, seen, heard, and touched, and as one who ate and drank with witnesses after God raised him. It does not describe his appearance.",
+    shortAnswer:
+      "Was Jesus a real person? The Bible presents him as a man of Nazareth whom eyewitnesses heard, saw, and touched.",
+    verses: [
+      {
+        reference: "Luke 1:1-4",
+        text: "Since many have undertaken to set in order a narrative concerning those matters which have been fulfilled among us, even as those who from the beginning were eyewitnesses and servants of the word delivered them to us, it seemed good to me also, having traced the course of all things accurately from the first, to write to you in order, most excellent Theophilus; that you might know the certainty concerning the things in which you were instructed.",
+      },
+      {
+        reference: "Luke 3:1-2",
+        text: "Now in the fifteenth year of the reign of Tiberius Caesar, Pontius Pilate being governor of Judea, and Herod being tetrarch of Galilee, and his brother Philip tetrarch of the region of Ituraea and Trachonitis, and Lysanias tetrarch of Abilene, in the high priesthood of Annas and Caiaphas, the word of God came to John, the son of Zacharias, in the wilderness.",
+      },
+      {
+        reference: "1 John 1:1-3",
+        text: "That which was from the beginning, that which we have heard, that which we have seen with our eyes, that which we saw, and our hands touched, concerning the Word of life (and the life was revealed, and we have seen, and testify, and declare to you the life, the eternal life, which was with the Father, and was revealed to us); that which we have seen and heard we declare to you, that you also may have fellowship with us. Yes, and our fellowship is with the Father, and with his Son, Jesus Christ.",
+      },
+      {
+        reference: "Acts 2:22",
+        text: "Men of Israel, hear these words! Jesus of Nazareth, a man approved by God to you by mighty works and wonders and signs which God did by him among you, even as you yourselves know.",
+      },
+      {
+        reference: "Acts 10:40-41",
+        text: "God raised him up the third day, and gave him to be revealed, not to all the people, but to witnesses who were chosen before by God, to us, who ate and drank with him after he rose from the dead.",
+      },
+    ],
+  },
+  {
+    id: "when-was-jesus-born",
+    question: "When was Jesus born?",
+    featured: false,
+    aliases: [
+      "jesus birthday",
+      "christmas date",
+      "what year was jesus born",
+      "was jesus born on december 25",
+      "nativity",
+    ],
+    intro:
+      "The Bible does not give a calendar date for Jesus’ birth. It places the birth in Bethlehem of Judea, in the days of Caesar Augustus and King Herod, when the fullness of the time came.",
+    shortAnswer:
+      "When was Jesus born? The Bible does not give a calendar date; it places the birth in Bethlehem in the days of Caesar Augustus and King Herod.",
+    verses: [
+      {
+        reference: "Luke 2:1-7",
+        text: "Now in those days, a decree went out from Caesar Augustus that all the world should be enrolled. This was the first enrollment made when Quirinius was governor of Syria. All went to enroll themselves, everyone to his own city. Joseph also went up from Galilee, out of the city of Nazareth, into Judea, to David’s city, which is called Bethlehem, because he was of the house and family of David; to enroll himself with Mary, who was pledged to be married to him as wife, being pregnant. While they were there, the day had come for her to give birth. She gave birth to her firstborn son. She wrapped him in bands of cloth, and laid him in a feeding trough, because there was no room for them in the inn.",
+      },
+      {
+        reference: "Matthew 2:1-2",
+        text: "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, saying, “Where is he who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
+      },
+      {
+        reference: "Galatians 4:4-5",
+        text: "But when the fullness of the time came, God sent out his Son, born to a woman, born under the law, that he might redeem those who were under the law, that we might receive the adoption of children.",
+      },
+    ],
+  },
+  {
+    id: "who-killed-jesus",
+    question: "Who killed Jesus?",
+    featured: false,
+    aliases: [
+      "who crucified jesus",
+      "who put jesus to death",
+      "did the romans kill jesus",
+      "why was jesus crucified",
+    ],
+    intro:
+      "The Bible names Herod, Pontius Pilate, Gentiles, and people of Israel gathered in Jerusalem, and lawless men who crucified him. It also says Jesus laid down his life, and that he was pierced for our transgressions. Near will not add a claim the verses do not make.",
+    shortAnswer:
+      "Who killed Jesus? The Bible names Pilate, Herod, and others in Jerusalem, and also says Jesus laid down his life and was pierced for our transgressions.",
+    verses: [
+      {
+        reference: "Acts 4:27-28",
+        text: "For truly, in this city against your holy servant, Jesus, whom you anointed, both Herod and Pontius Pilate, with the Gentiles and the people of Israel, were gathered together to do whatever your hand and your council foreordained to happen.",
+      },
+      {
+        reference: "Acts 2:23",
+        text: "him, being delivered up by the determined counsel and foreknowledge of God, you have taken by the hand of lawless men, crucified and killed.",
+      },
+      {
+        reference: "Matthew 27:24-26",
+        text: "So when Pilate saw that nothing was being gained, but rather that a disturbance was starting, he took water, and washed his hands before the multitude, saying, “I am innocent of the blood of this righteous person. You see to it.” All the people answered, “May his blood be on us, and on our children!” Then he released to them Barabbas, but Jesus he flogged and delivered to be crucified.",
+      },
+      {
+        reference: "John 10:17-18",
+        text: "Therefore the Father loves me, because I lay down my life, that I may take it again. No one takes it away from me, but I lay it down by myself. I have power to lay it down, and I have power to take it again. I received this commandment from my Father.",
+      },
+      {
+        reference: "Isaiah 53:5-6",
+        text: "But he was pierced for our transgressions. He was crushed for our iniquities. The punishment that brought our peace was on him; and by his wounds we are healed. All we like sheep have gone astray. Everyone has turned to his own way; and Yahweh has laid on him the iniquity of us all.",
+      },
+    ],
+  },
+  {
+    id: "why-did-jesus-cry",
+    question: "Why did Jesus cry?",
+    featured: false,
+    aliases: [
+      "jesus wept",
+      "why did jesus weep",
+      "shortest verse",
+      "did jesus cry",
+    ],
+    intro:
+      "The Bible records that Jesus wept at Lazarus’s tomb, and that he wept over Jerusalem. It also says that in the days of his flesh he offered prayers with strong crying and tears. It does not describe his appearance.",
+    shortAnswer:
+      "Why did Jesus cry? The Bible says Jesus wept at Lazarus’s tomb and wept over Jerusalem.",
+    verses: [
+      {
+        reference: "John 11:33-36",
+        text: "When Jesus therefore saw her weeping, and the Jews weeping who came with her, he groaned in the spirit, and was troubled, and said, “Where have you laid him?” They told him, “Lord, come and see.” Jesus wept. The Jews therefore said, “See how much affection he had for him!”",
+      },
+      {
+        reference: "Luke 19:41-42",
+        text: "When he came near, he saw the city and wept over it, saying, “If you, even you, had known today the things which belong to your peace! But now, they are hidden from your eyes.”",
+      },
+      {
+        reference: "Hebrews 5:7",
+        text: "He, in the days of his flesh, having offered up prayers and petitions with strong crying and tears to him who was able to save him from death, and having been heard for his godly fear.",
+      },
+    ],
+  },
+  {
+    id: "is-the-bible-true",
+    question: "Is the Bible true?",
+    featured: false,
+    aliases: [
+      "is scripture true",
+      "can i trust the bible",
+      "is the bible historically accurate",
+      "word of god true",
+    ],
+    intro:
+      "The Bible calls God’s word truth, says every Scripture is God-breathed, and that holy men spoke from God as they were moved by the Holy Spirit. Near will not add claims those verses do not make.",
+    shortAnswer:
+      "Is the Bible true? The Bible calls God’s word truth and says every Scripture is God-breathed.",
+    verses: [
+      {
+        reference: "John 17:17",
+        text: "Sanctify them in your truth. Your word is truth.",
+      },
+      {
+        reference: "2 Timothy 3:16-17",
+        text: "Every Scripture is God-breathed and profitable for teaching, for reproof, for correction, and for instruction in righteousness, that the man of God may be complete, thoroughly equipped for every good work.",
+      },
+      {
+        reference: "Psalms 119:160",
+        text: "All of your words are truth. Every one of your righteous ordinances endures forever.",
+      },
+      {
+        reference: "2 Peter 1:16-21",
+        text: "For we did not follow cunningly devised fables, when we made known to you the power and coming of our Lord Jesus Christ, but we were eyewitnesses of his majesty. For he received from God the Father honor and glory, when the voice came to him from the Majestic Glory, “This is my beloved Son, in whom I am well pleased.” We heard this voice come out of heaven when we were with him on the holy mountain. We have the more sure word of prophecy; and you do well that you heed it, as to a lamp shining in a dark place, until the day dawns, and the morning star arises in your hearts: knowing this first, that no prophecy of Scripture is of private interpretation. For no prophecy ever came by the will of man: but holy men of God spoke, being moved by the Holy Spirit.",
+      },
+    ],
+  },
+  {
+    id: "how-do-i-become-a-christian",
+    question: "How do I become a Christian?",
+    featured: false,
+    aliases: [
+      "how to be a christian",
+      "how to get saved",
+      "how to follow christ",
+      "become a believer",
+      "what is a christian",
+    ],
+    intro:
+      "Disciples were first called Christians in Antioch. The Bible says those who receive Jesus and believe in his name are given the right to become God’s children, and it calls people to repent, believe the Good News, confess Jesus as Lord, and be baptized.",
+    shortAnswer:
+      "How do I become a Christian? The Bible says receive Jesus, believe in his name, repent, and confess that Jesus is Lord.",
+    verses: [
+      {
+        reference: "Acts 11:26",
+        text: "When he had found him, he brought him to Antioch. For a whole year they were gathered together with the assembly, and taught many people. The disciples were first called Christians in Antioch.",
+      },
+      {
+        reference: "John 1:12-13",
+        text: "But as many as received him, to them he gave the right to become God’s children, to those who believe in his name: who were born not of blood, nor of the will of the flesh, nor of the will of man, but of God.",
+      },
+      {
+        reference: "Mark 1:14-15",
+        text: "Now after John was taken into custody, Jesus came into Galilee, preaching the Good News of God’s Kingdom, and saying, “The time is fulfilled, and God’s Kingdom is at hand! Repent, and believe in the Good News.”",
+      },
+      {
+        reference: "Romans 10:9-10",
+        text: "that if you will confess with your mouth that Jesus is Lord, and believe in your heart that God raised him from the dead, you will be saved. For with the heart, one believes unto righteousness; and with the mouth confession is made unto salvation.",
+      },
+      {
+        reference: "Acts 2:38",
+        text: "Peter said to them, “Repent, and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of sins, and you will receive the gift of the Holy Spirit.”",
+      },
+    ],
+  },
+  {
+    id: "what-happens-after-i-die",
+    question: "What happens after I die?",
+    featured: false,
+    aliases: [
+      "where do we go when we die",
+      "afterlife",
+      "heaven and hell",
+      "resurrection of the dead",
+      "is there life after death",
+    ],
+    intro:
+      "The Bible says it is appointed for people to die once, and after this, judgment. Jesus says he is the resurrection and the life. It speaks of being at home with the Lord, and of a resurrection of life and of judgment. Near will not map every detail beyond these verses.",
+    shortAnswer:
+      "What happens after I die? The Bible says people die once and then face judgment, and Jesus says he is the resurrection and the life.",
+    verses: [
+      {
+        reference: "Hebrews 9:27",
+        text: "Inasmuch as it is appointed for men to die once, and after this, judgment.",
+      },
+      {
+        reference: "John 11:25-26",
+        text: "Jesus said to her, “I am the resurrection and the life. He who believes in me will still live, even if he dies. Whoever lives and believes in me will never die. Do you believe this?”",
+      },
+      {
+        reference: "John 5:28-29",
+        text: "Don’t marvel at this, for the hour comes, in which all that are in the tombs will hear his voice, and will come out; those who have done good, to the resurrection of life; and those who have done evil, to the resurrection of judgment.",
+      },
+      {
+        reference: "2 Corinthians 5:6-8",
+        text: "Therefore we are always confident and know that while we are at home in the body, we are absent from the Lord; for we walk by faith, not by sight. We are courageous, I say, and are willing rather to be absent from the body, and to be at home with the Lord.",
+      },
+      {
+        reference: "Luke 23:43",
+        text: "Jesus said to him, “Assuredly I tell you, today you will be with me in Paradise.”",
+      },
+      {
+        reference: "1 Thessalonians 4:13-14",
+        text: "But we don’t want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don’t grieve like the rest, who have no hope. For if we believe that Jesus died and rose again, even so God will bring with him those who have fallen asleep in Jesus.",
+      },
+    ],
+  },
 ];
 
 export const featuredQuestions = questions.filter((q) => q.featured);
+export const moreQuestions = questions.filter((q) => !q.featured);

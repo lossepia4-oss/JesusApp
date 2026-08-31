@@ -28,6 +28,7 @@ This repo is ready for Vercel: Next.js App Router plus `vercel.json`. Connect th
 
 - `/` Ask
 - `/ask/who-is-jesus` Example shareable answer (every question has a stable URL)
+- `/ask/who-is-god`, `/ask/when-was-jesus-born`, `/ask/how-do-i-become-a-christian` More seeker questions
 - `/today` Seven-day way to live
 - `/reminders` Notification time (on by default at 8:00)
 - `/about`
