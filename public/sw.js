@@ -1,4 +1,4 @@
-const CACHE = "near-v1";
+const CACHE = "near-v2";
 const PRECACHE = [
   "/",
   "/today",

@@ -17,7 +17,12 @@ function canUseNativeShare() {
 async function copyToClipboard(text: string): Promise<boolean> {
   if (navigator.clipboard?.writeText) {
     try {
-      await navigator.clipboard.writeText(text);
+      await Promise.race([
+        navigator.clipboard.writeText(text),
+        new Promise<never>((_, reject) => {
+          window.setTimeout(() => reject(new Error("clipboard-timeout")), 800);
+        }),
+      ]);
       return true;
     } catch {
       /* fall through */
@@ -59,6 +64,15 @@ export function ShareButton({ question }: { question: string }) {
     const url = window.location.href;
     const payload = shareText(question, url);
 
+    const copied = await copyToClipboard(payload);
+    if (copied) {
+      setStatus("copied");
+      window.setTimeout(() => setStatus("idle"), 2500);
+    } else {
+      setManual(payload);
+      setStatus("manual");
+    }
+
     if (canUseNativeShare()) {
       try {
         await navigator.share({
@@ -66,23 +80,12 @@ export function ShareButton({ question }: { question: string }) {
           text: question,
           url,
         });
-        return;
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
           return;
         }
       }
     }
-
-    const copied = await copyToClipboard(payload);
-    if (copied) {
-      setStatus("copied");
-      window.setTimeout(() => setStatus("idle"), 2000);
-      return;
-    }
-
-    setManual(payload);
-    setStatus("manual");
   }
 
   return (
