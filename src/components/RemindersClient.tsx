@@ -18,9 +18,14 @@ export function RemindersClient() {
   const [installHint, setInstallHint] = useState(false);
 
   useEffect(() => {
-    setSettings(loadReminders());
+    const loaded = loadReminders();
+    setSettings(loaded);
     if (!("Notification" in window)) {
       setPermission("unsupported");
+    } else if (loaded.enabled && Notification.permission === "default") {
+      void ensureNotificationPermission().then((result) => {
+        setPermission(result === "granted" || result === "denied" ? result : "default");
+      });
     } else {
       setPermission(Notification.permission);
     }

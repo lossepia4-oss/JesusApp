@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import { days, dayIndexFromDate } from "@/data/days";
 import {
-  ensureNotificationPermission,
   loadReminders,
   nextReminderDate,
   saveReminders,
@@ -42,12 +41,9 @@ export function ReminderScheduler() {
   }, [fire]);
 
   useEffect(() => {
-    const settings = loadReminders();
-    if (settings.enabled && "Notification" in window && Notification.permission === "default") {
-      void ensureNotificationPermission().then(() => schedule());
-    } else {
-      schedule();
-    }
+    // Do not prompt for permission here. Reminders stay on by default; the
+    // Reminders page requests permission when the user keeps or turns them on.
+    schedule();
 
     const onVis = () => {
       if (document.visibilityState === "visible") schedule();
